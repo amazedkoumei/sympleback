@@ -1,0 +1,35 @@
+application: sympleback
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /favicon.ico
+  static_files: favicon.ico
+  upload: favicon.ico
+
+- url: /
+  static_files: index.html
+  upload: index.html
+
+- url: /testform
+  static_files: testform.html
+  upload: testform.html
+
+- url: /admin
+  script: admin/index.py
+  login: admin
+  
+- url: /admin/jquery.mobile-1.1.1/(.*\.(js|css))
+  static_files: admin/jquery.mobile-1.1.1/\1
+  upload: admin/jquery.mobile-1.1.1/(.*\.(js|css))
+  login: admin
+  
+- url: /admin/jquery.mobile-1.1.1/images/(.*\.(gif|png))
+  static_files: admin/jquery.mobile-1.1.1/images/\1
+  upload: admin/jquery.mobile-1.1.1/images/(.*\.(gif|png))
+  login: admin
+  
+- url: /api/feedback/(post|put|delete)
+  script: api/feedback.py
+        

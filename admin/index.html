@@ -1,0 +1,48 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>MyPage | simpleback</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="/admin/jquery.mobile-1.1.1/jquery.mobile-1.1.1.min.css" />
+<script type="text/javascript" src="/admin/jquery.mobile-1.1.1/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/admin/jquery.mobile-1.1.1/jquery.mobile-1.1.1.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+//]]>
+</script>
+<title></title>
+<meta name="description" content="" /> 
+<meta name="keywords" content="" /> 
+</head>
+<body>
+
+<div data-role="page">
+	<div data-role="header">
+		<h1>Feedback</h1>
+	</div>
+
+	<div data-role="controlgroup" data-type="horizontal">
+		<a href="/admin" data-role="button" class="ui-btn-active">Home</a>
+		<a href="/admin/starred" data-role="button">Starred</a>
+		<a href="/admin/done" data-role="button">Done</a>
+	</div>
+
+	<div data-role="content">	
+	<ul data-role="listview"> 
+		{% for obj in feedbackDict.items %}
+		<li data-role="list-divider">{{obj.0}}</li> 
+			{% for feedback in obj.1 %}
+			<li><a href="/admin/detail"> 
+				<h3>{{feedback.service_name}}</h3> 
+				<p>{{feedback.message}}</p>
+				<p class="ui-li-aside"><strong>{{feedback.insert_time}}</strong></p> 
+			</a></li>
+			{% endfor %}
+		{% endfor %}
+	</ul>
+	</div>
+
+</div><!-- /page -->
+
+</body>
+</html>
